@@ -1,0 +1,6 @@
+{
+  "name": "CampusCart",
+  "description": "Student-focused marketplace for buying and selling affordable used furniture when moving between dorms, hostels, PGs, and campus apartments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
