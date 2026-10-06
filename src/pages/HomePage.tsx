@@ -86,7 +86,7 @@ export const HomePage: React.FC = () => {
               </div>
 
               <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-slate-950 tracking-tight leading-[1.1]">
-                Buy. Sell. Connect.{' '}
+                Buy, Sell, Connect{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600">
                   — Right on Campus.
                 </span>
@@ -102,8 +102,7 @@ export const HomePage: React.FC = () => {
                   onClick={() => navigateTo('marketplace')}
                   className="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 active:scale-98 text-white font-bold rounded-xl text-sm shadow-sm transition-all flex items-center gap-2"
                 >
-                  <span>Browse Products</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Browse Products →</span>
                 </button>
                 <button
                   onClick={() => navigateTo('sell')}
@@ -156,12 +155,12 @@ export const HomePage: React.FC = () => {
 
               {/* Floating Savings Badge */}
               <div className="absolute -bottom-4 -left-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">
-                  $48
+                <div className="w-12 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm font-mono">
+                  ₹450
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-900">Average Student Savings</p>
-                  <p className="text-[11px] text-slate-500">Compared to retail and bookstore prices</p>
+                  <p className="text-[11px] text-slate-500">Compared to bookstore and retail prices</p>
                 </div>
               </div>
             </div>

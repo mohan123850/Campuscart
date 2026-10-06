@@ -91,13 +91,13 @@ export const SellItemPage: React.FC = () => {
             <div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold mb-2">
                 <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Zero Listing Fees · Student Community</span>
+                <span>No middleman commission · 100% Student-to-Student</span>
               </div>
               <h1 className="font-display font-extrabold text-3xl text-slate-900 tracking-tight">
-                List an Item on CampusCart
+                Turn unused things into extra cash.
               </h1>
               <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                Pass down used textbooks, calculators, tech accessories, and dorm essentials to students nearby
+                List your item and connect with students around your campus.
               </p>
             </div>
 
@@ -225,18 +225,18 @@ export const SellItemPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
                   <label className="block font-bold text-slate-900 uppercase tracking-wider mb-1.5">
-                    Your Asking Price ($) <span className="text-rose-500">*</span>
+                    Your Asking Price (₹) <span className="text-rose-500">*</span>
                   </label>
                   <div className="relative">
-                    <span className="absolute left-3.5 top-2.5 text-slate-400 font-bold">$</span>
+                    <span className="absolute left-3.5 top-2.5 text-slate-400 font-bold">₹</span>
                     <input
                       type="number"
                       required
-                      min="1"
-                      max="999"
+                      min="10"
+                      max="50000"
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
-                      placeholder="25"
+                      placeholder="450"
                       className="w-full pl-8 pr-3 py-2 text-xs font-mono font-bold rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                     />
                   </div>
@@ -244,17 +244,17 @@ export const SellItemPage: React.FC = () => {
 
                 <div>
                   <label className="block font-bold text-slate-900 uppercase tracking-wider mb-1.5">
-                    Original Retail Price ($)
+                    Original Retail Price (₹)
                   </label>
                   <div className="relative">
-                    <span className="absolute left-3.5 top-2.5 text-slate-400 font-bold">$</span>
+                    <span className="absolute left-3.5 top-2.5 text-slate-400 font-bold">₹</span>
                     <input
                       type="number"
-                      min="1"
-                      max="2000"
+                      min="10"
+                      max="100000"
                       value={originalPrice}
                       onChange={(e) => setOriginalPrice(e.target.value)}
-                      placeholder="75"
+                      placeholder="1200"
                       className="w-full pl-8 pr-3 py-2 text-xs font-mono rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                     />
                   </div>
@@ -340,14 +340,14 @@ export const SellItemPage: React.FC = () => {
               <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-2 text-slate-500">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span>Free to list · 100% Student-to-Student</span>
+                  <span>No middleman commission.</span>
                 </div>
 
                 <button
                   type="submit"
                   className="w-full sm:w-auto px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs shadow-sm transition-all flex items-center justify-center gap-2"
                 >
-                  <span>List Item</span>
+                  <span>List My Item</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -361,7 +361,7 @@ export const SellItemPage: React.FC = () => {
             </div>
             <div>
               <h2 className="font-display font-black text-2xl text-slate-900">
-                Your Item is Live on CampusCart!
+                Your item is now live on CampusCart.
               </h2>
               <p className="text-xs text-slate-500 max-w-sm mx-auto mt-1 leading-relaxed">
                 Students on your campus can now discover your listing and message you directly for in-person campus pickup.

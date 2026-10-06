@@ -46,12 +46,10 @@ export const AuthModal: React.FC = () => {
             <ShoppingBag className="w-5 h-5" />
           </div>
           <h2 className="font-display font-extrabold text-2xl text-slate-900">
-            {authMode === 'login' ? 'Student Login' : 'Join CampusCart'}
+            Welcome to CampusCart.
           </h2>
-          <p className="text-xs text-slate-500">
-            {authMode === 'login'
-              ? 'Access your listings, saved items, and campus chats'
-              : 'Buy and sell within your verified college community'}
+          <p className="text-xs text-emerald-700 font-semibold">
+            CampusCart is built for students, by students.
           </p>
         </div>
 
@@ -148,7 +146,7 @@ export const AuthModal: React.FC = () => {
             type="submit"
             className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs shadow-sm transition-all flex items-center justify-center gap-1.5 mt-2"
           >
-            <span>{authMode === 'login' ? 'Log In to CampusCart' : 'Create Free Student Account'}</span>
+            <span>{authMode === 'login' ? 'Log In' : 'Create Account'}</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </form>

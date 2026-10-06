@@ -15,6 +15,7 @@ import { QuickViewModal } from './components/QuickViewModal';
 import { HomePage } from './pages/HomePage';
 import { MarketplacePage } from './pages/MarketplacePage';
 import { CategoriesPage } from './pages/CategoriesPage';
+import { HowItWorksPage } from './pages/HowItWorksPage';
 import { ProductDetailsPage } from './pages/ProductDetailsPage';
 import { SellItemPage } from './pages/SellItemPage';
 import { StudentDashboardPage } from './pages/StudentDashboardPage';
@@ -32,6 +33,8 @@ const AppContent: React.FC = () => {
         return <MarketplacePage />;
       case 'categories':
         return <CategoriesPage />;
+      case 'how-it-works':
+        return <HowItWorksPage />;
       case 'product-details':
         return <ProductDetailsPage />;
       case 'sell':

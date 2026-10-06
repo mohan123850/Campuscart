@@ -1,7 +1,7 @@
 import React from 'react';
 import { Product } from '../types';
 import { useCampusCart } from '../context/CampusCartContext';
-import { Heart, MapPin, Star, Eye } from 'lucide-react';
+import { Heart, MapPin, Star, Eye, CheckCircle2, Navigation } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -91,24 +91,32 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             {product.title}
           </h3>
 
-          {/* Location / Campus */}
-          <div className="flex items-center gap-1 text-[11px] text-slate-500">
-            <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-            <span className="truncate">{product.location}</span>
+          {/* Location & Distance */}
+          <div className="space-y-1 text-[11px] text-slate-500">
+            <div className="flex items-center gap-1">
+              <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <span className="truncate">{product.college}</span>
+            </div>
+            {product.distance && (
+              <div className="flex items-center gap-1 text-emerald-700 font-medium">
+                <Navigation className="w-3 h-3 text-emerald-600 shrink-0" />
+                <span className="truncate">{product.distance}</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
 
-      {/* Footer: Price, Quick View action & Seller */}
+      {/* Footer: Price (INR ₹), Quick View action & Seller Verification */}
       <div className="px-4 pb-4 pt-2 border-t border-slate-100 space-y-2">
         <div className="flex items-center justify-between">
           <div className="flex items-baseline gap-1.5">
             <span className="font-display font-extrabold text-lg text-slate-900 font-mono tabular-nums">
-              ${product.price}
+              ₹{product.price.toLocaleString('en-IN')}
             </span>
             {product.originalPrice && product.originalPrice > product.price && (
               <span className="text-[11px] text-slate-400 line-through font-mono">
-                ${product.originalPrice}
+                ₹{product.originalPrice.toLocaleString('en-IN')}
               </span>
             )}
           </div>
@@ -124,10 +132,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </button>
         </div>
 
-        <div className="flex items-center justify-between text-[11px] text-slate-400 pt-1 border-t border-slate-50">
-          <span className="truncate max-w-[120px] text-slate-500 font-medium">
-            {product.sellerName}
-          </span>
+        <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1 border-t border-slate-50">
+          <div className="flex items-center gap-1 min-w-0">
+            <span className="truncate max-w-[100px] text-slate-700 font-medium">
+              {product.sellerName}
+            </span>
+            {product.sellerVerified !== false && (
+              <span title="Verified Student" className="text-emerald-600 inline-flex items-center">
+                <CheckCircle2 className="w-3.5 h-3.5 fill-emerald-100 text-emerald-600" />
+              </span>
+            )}
+          </div>
+
           {product.sellerRating && (
             <span className="flex items-center text-amber-500 font-semibold shrink-0">
               <Star className="w-3 h-3 fill-amber-400" />

@@ -174,16 +174,16 @@ export const ProductDetailsPage: React.FC = () => {
 
                 <div className="flex items-baseline gap-3 mt-3">
                   <span className="font-display font-black text-3xl sm:text-4xl text-slate-900 font-mono tabular-nums">
-                    ${selectedProduct.price}
+                    ₹{selectedProduct.price.toLocaleString('en-IN')}
                   </span>
                   {selectedProduct.originalPrice &&
                     selectedProduct.originalPrice > selectedProduct.price && (
                       <div className="flex items-center gap-2 text-xs">
                         <span className="text-slate-400 line-through font-mono tabular-nums">
-                          ${selectedProduct.originalPrice}
+                          ₹{selectedProduct.originalPrice.toLocaleString('en-IN')}
                         </span>
                         <span className="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded font-mono">
-                          Save ${selectedProduct.originalPrice - selectedProduct.price} (
+                          Save ₹{(selectedProduct.originalPrice - selectedProduct.price).toLocaleString('en-IN')} (
                           {Math.round(
                             ((selectedProduct.originalPrice - selectedProduct.price) /
                               selectedProduct.originalPrice) *
@@ -196,13 +196,18 @@ export const ProductDetailsPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Campus Location */}
-              <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-100 space-y-1">
+              {/* Campus Location & Distance */}
+              <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-100 space-y-1.5">
                 <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
                   <MapPin className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>{selectedProduct.college}</span>
                 </div>
-                <p className="text-[11px] text-slate-500 pl-6">{selectedProduct.location}</p>
+                <p className="text-[11px] text-slate-500 pl-6">Pickup: {selectedProduct.location}</p>
+                {selectedProduct.distance && (
+                  <p className="text-[11px] text-emerald-700 font-semibold pl-6">
+                    📍 {selectedProduct.distance}
+                  </p>
+                )}
               </div>
 
               {/* Primary Action Buttons */}
@@ -212,7 +217,7 @@ export const ProductDetailsPage: React.FC = () => {
                   className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 active:scale-98 text-white font-bold rounded-2xl text-sm shadow-sm transition-all flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>Buy / Contact Seller</span>
+                  <span>Buy / Arrange Pickup</span>
                 </button>
 
                 <div className="grid grid-cols-2 gap-2">
@@ -221,7 +226,7 @@ export const ProductDetailsPage: React.FC = () => {
                     className="py-2.5 px-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold rounded-xl text-xs transition-colors flex items-center justify-center gap-1.5 border border-emerald-200"
                   >
                     <MessageSquare className="w-3.5 h-3.5" />
-                    <span>Secure Chat</span>
+                    <span>Message Seller</span>
                   </button>
 
                   <button
@@ -238,6 +243,12 @@ export const ProductDetailsPage: React.FC = () => {
                     <span>{favorited ? 'Saved' : 'Save Item'}</span>
                   </button>
                 </div>
+              </div>
+
+              {/* Trust Callout */}
+              <div className="p-3 bg-emerald-50/70 border border-emerald-100 rounded-2xl text-xs text-emerald-800 flex items-center gap-2 font-medium">
+                <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>CampusCart keeps transactions local and student-focused.</span>
               </div>
 
               {/* Seller Identity Card */}

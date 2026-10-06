@@ -36,8 +36,7 @@ export const Navbar: React.FC = () => {
     { label: 'Home', page: 'home' },
     { label: 'Marketplace', page: 'marketplace' },
     { label: 'Categories', page: 'categories' },
-    { label: 'Sell', page: 'sell' },
-    { label: 'Dashboard', page: 'dashboard' },
+    { label: 'How It Works', page: 'how-it-works' },
   ];
 
   const handleNav = (page: PageId) => {
@@ -139,7 +138,7 @@ export const Navbar: React.FC = () => {
             className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-xs transition-colors"
           >
             <PlusCircle className="w-3.5 h-3.5" />
-            <span>Sell Item</span>
+            <span>Sell an Item</span>
           </button>
 
           {/* User Account / Auth Buttons */}

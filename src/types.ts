@@ -20,9 +20,11 @@ export type PageId =
   | 'home'
   | 'marketplace'
   | 'categories'
+  | 'how-it-works'
   | 'product-details'
   | 'sell'
-  | 'dashboard';
+  | 'dashboard'
+  | 'login';
 
 export interface User {
   id: string;
@@ -47,10 +49,12 @@ export interface Product {
   images: string[];
   college: string;
   location: string;
+  distance?: string;
   sellerId: string;
   sellerName: string;
   sellerAvatar?: string;
   sellerRating?: number;
+  sellerVerified?: boolean;
   contactPreference?: string;
   createdAt: string;
   views?: number;

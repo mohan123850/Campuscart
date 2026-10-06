@@ -106,7 +106,7 @@ export const MarketplacePage: React.FC = () => {
     (selectedCategory !== 'All' ? 1 : 0) +
     (selectedCampus !== 'All Campuses' ? 1 : 0) +
     (selectedCondition !== 'All' ? 1 : 0) +
-    (maxPrice < 150 ? 1 : 0);
+    (maxPrice < 3000 ? 1 : 0);
 
   return (
     <div className="min-h-screen bg-slate-50 py-6 sm:py-8">
@@ -116,10 +116,10 @@ export const MarketplacePage: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h1 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 tracking-tight">
-                Campus Marketplace
+                Find what you need. Close to home.
               </h1>
               <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-                Browse pre-loved textbooks, electronics, hostel furniture, and student essentials
+                Discover affordable products from students around your campus.
               </p>
             </div>
 
@@ -148,7 +148,7 @@ export const MarketplacePage: React.FC = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by keywords: 'books', 'calculator', 'laptop', 'hostel', 'table'..."
+                placeholder="Search for books, electronics, furniture..."
                 className="w-full pl-9 pr-9 py-2.5 text-xs sm:text-sm bg-white rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-2xs"
               />
               {searchQuery && (
@@ -247,22 +247,22 @@ export const MarketplacePage: React.FC = () => {
               <div className="flex items-center justify-between mb-2">
                 <label className="text-xs font-bold text-slate-700">Max Budget</label>
                 <span className="font-mono text-xs font-bold text-emerald-700 tabular-nums">
-                  ${maxPrice}
+                  ₹{maxPrice.toLocaleString('en-IN')}
                 </span>
               </div>
               <input
                 type="range"
-                min="10"
-                max="150"
-                step="5"
+                min="200"
+                max="5000"
+                step="100"
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(Number(e.target.value))}
                 className="w-full cursor-pointer accent-emerald-600"
               />
               <div className="flex justify-between text-[10px] text-slate-400 font-mono mt-1">
-                <span>$10</span>
-                <span>$75</span>
-                <span>$150+</span>
+                <span>₹200</span>
+                <span>₹2,500</span>
+                <span>₹5,000</span>
               </div>
             </div>
 
@@ -420,13 +420,13 @@ export const MarketplacePage: React.FC = () => {
               <div>
                 <div className="flex justify-between text-xs mb-1.5">
                   <span className="font-bold text-slate-700">Max Budget</span>
-                  <span className="font-mono font-bold text-emerald-700">${maxPrice}</span>
+                  <span className="font-mono font-bold text-emerald-700">₹{maxPrice.toLocaleString('en-IN')}</span>
                 </div>
                 <input
                   type="range"
-                  min="10"
-                  max="150"
-                  step="5"
+                  min="200"
+                  max="5000"
+                  step="100"
                   value={maxPrice}
                   onChange={(e) => setMaxPrice(Number(e.target.value))}
                   className="w-full"

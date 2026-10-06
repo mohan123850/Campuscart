@@ -75,7 +75,7 @@ export const ContactSellerModal: React.FC = () => {
             </h4>
             <div className="flex items-center gap-2 mt-0.5">
               <span className="font-mono font-bold text-emerald-700 text-sm">
-                ${activeProductForContact.price}
+                ₹{activeProductForContact.price.toLocaleString('en-IN')}
               </span>
               <span className="text-slate-400">·</span>
               <span className="text-slate-600 font-medium">

@@ -24,11 +24,11 @@ export const Footer: React.FC = () => {
                 Campus<span className="text-emerald-400">Cart</span>
               </span>
             </div>
-            <p className="text-slate-300 max-w-sm leading-relaxed text-sm font-medium">
-              “Making campus shopping simpler, smarter and more affordable.”
+            <p className="text-slate-300 max-w-sm leading-relaxed text-sm font-semibold">
+              “Your Campus. Your Marketplace.”
             </p>
             <p className="text-slate-400 text-xs max-w-sm leading-relaxed">
-              Your Campus. Your Marketplace. Connect directly with students to buy and sell textbooks, calculators, dorm furniture, and hostel essentials with zero middleman markups.
+              CampusCart makes it easy for students to buy and sell affordable products within their campus community.
             </p>
             <div className="flex items-center gap-2 text-emerald-400 font-semibold pt-1">
               <ShieldCheck className="w-4 h-4" />
@@ -92,18 +92,8 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2">
               <li>
-                <button onClick={() => navigateTo('home')} className="hover:text-white transition-colors">
-                  Home
-                </button>
-              </li>
-              <li>
                 <button onClick={() => navigateTo('marketplace')} className="hover:text-white transition-colors">
-                  Browse Marketplace
-                </button>
-              </li>
-              <li>
-                <button onClick={() => navigateTo('categories')} className="hover:text-white transition-colors">
-                  All Categories
+                  Marketplace
                 </button>
               </li>
               <li>
@@ -112,8 +102,13 @@ export const Footer: React.FC = () => {
                 </button>
               </li>
               <li>
-                <button onClick={() => navigateTo('dashboard')} className="hover:text-white transition-colors">
-                  Student Dashboard
+                <button onClick={() => navigateTo('how-it-works')} className="hover:text-white transition-colors">
+                  How It Works
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigateTo('categories')} className="hover:text-white transition-colors">
+                  Categories
                 </button>
               </li>
             </ul>
@@ -146,7 +141,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
-          <p>© 2026 CampusCart Inc. All rights reserved. Made for college students.</p>
+          <p>© 2026 CampusCart. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <button onClick={() => navigateTo('marketplace')} className="hover:text-slate-300">
               About

@@ -72,11 +72,11 @@ interface CampusCartContextType {
 const CampusCartContext = createContext<CampusCartContextType | undefined>(undefined);
 
 const STORAGE_KEYS = {
-  PRODUCTS: 'campuscart_products_v2',
-  FAVORITES: 'campuscart_favorites_v2',
-  USERS: 'campuscart_users_v2',
-  CURRENT_USER_ID: 'campuscart_current_user_v2',
-  MESSAGES: 'campuscart_messages_v2',
+  PRODUCTS: 'campuscart_products_v3',
+  FAVORITES: 'campuscart_favorites_v3',
+  USERS: 'campuscart_users_v3',
+  CURRENT_USER_ID: 'campuscart_current_user_v3',
+  MESSAGES: 'campuscart_messages_v3',
 };
 
 export const CampusCartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -150,7 +150,7 @@ export const CampusCartProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [selectedCampus, setSelectedCampus] = useState('All Campuses');
   const [sortOption, setSortOption] = useState<'newest' | 'price-asc' | 'price-desc'>('newest');
   const [selectedCondition, setSelectedCondition] = useState<ProductCondition | 'All'>('All');
-  const [maxPrice, setMaxPrice] = useState<number>(150);
+  const [maxPrice, setMaxPrice] = useState<number>(3000);
 
   // Modals & Feedback
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -215,7 +215,7 @@ export const CampusCartProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     setSelectedCampus('All Campuses');
     setSortOption('newest');
     setSelectedCondition('All');
-    setMaxPrice(150);
+    setMaxPrice(3000);
     showToast('Filters reset to show all campus products.');
   };
 

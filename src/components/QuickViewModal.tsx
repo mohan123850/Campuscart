@@ -128,16 +128,16 @@ export const QuickViewModal: React.FC = () => {
               {/* Price & Savings */}
               <div className="flex items-baseline gap-2 mt-2">
                 <span className="font-display font-extrabold text-2xl text-slate-900 font-mono tabular-nums">
-                  ${quickViewProduct.price}
+                  ₹{quickViewProduct.price.toLocaleString('en-IN')}
                 </span>
                 {quickViewProduct.originalPrice &&
                   quickViewProduct.originalPrice > quickViewProduct.price && (
                     <div className="flex items-center gap-1.5">
                       <span className="text-slate-400 line-through font-mono">
-                        ${quickViewProduct.originalPrice}
+                        ₹{quickViewProduct.originalPrice.toLocaleString('en-IN')}
                       </span>
                       <span className="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded text-[10px] font-mono">
-                        Save ${quickViewProduct.originalPrice - quickViewProduct.price}
+                        Save ₹{(quickViewProduct.originalPrice - quickViewProduct.price).toLocaleString('en-IN')}
                       </span>
                     </div>
                   )}
@@ -153,6 +153,11 @@ export const QuickViewModal: React.FC = () => {
               <p className="text-[11px] text-slate-500 pl-5 truncate">
                 Pickup: {quickViewProduct.location}
               </p>
+              {quickViewProduct.distance && (
+                <p className="text-[11px] text-emerald-700 font-medium pl-5 truncate">
+                  📍 {quickViewProduct.distance}
+                </p>
+              )}
             </div>
 
             {/* Description Excerpt */}

@@ -308,7 +308,162 @@ function generate500PlusProducts(): Product[] {
     'Engineering Quad Hall A',
   ];
 
-  let idCounter = 1;
+  const distances = [
+    '0.2 km away (2 min walk)',
+    '0.3 km away (4 min walk)',
+    '0.4 km away (5 min walk)',
+    '0.5 km away (6 min walk)',
+    '0.6 km away (7 min walk)',
+    '0.8 km away (10 min walk)',
+    '1.1 km away (North Quad)',
+    '1.2 km away (Hostel Block)',
+  ];
+
+  // Specific highlighted products from prompt
+  const promptFeaturedItems: Product[] = [
+    {
+      id: 'prod-1',
+      title: 'Engineering Mathematics — Semester 2',
+      category: 'Books & Study Materials',
+      price: 350,
+      originalPrice: 950,
+      condition: 'Like New',
+      description: 'Engineering Mathematics textbook with formulas and step-by-step solved question papers. Crisp unmarked pages. Essential for 1st/2nd year engineering students.',
+      images: [textbooksImg, calculatorImg],
+      college: 'State Tech University',
+      location: 'North Hall Dorm, Block B',
+      distance: '0.2 km away (2 min walk)',
+      sellerId: 'user-1',
+      sellerName: 'Alex Rivera',
+      sellerAvatar: INITIAL_USERS[0].avatar,
+      sellerRating: 4.9,
+      sellerVerified: true,
+      contactPreference: 'CampusCart Chat / Meet at Student Commons',
+      createdAt: new Date().toISOString(),
+      views: 184,
+      featured: true,
+      status: 'active',
+    },
+    {
+      id: 'prod-2',
+      title: 'Scientific Calculator',
+      category: 'Electronics',
+      price: 650,
+      originalPrice: 1400,
+      condition: 'Gently Used',
+      description: 'Casio fx-991EX ClassWiz scientific calculator with 552 functions and solar panel. Perfect for university math, thermodynamics, and physics exams.',
+      images: [calculatorImg, textbooksImg],
+      college: 'Metro Science & Engineering College',
+      location: 'Hostel 4, Room 218',
+      distance: '0.3 km away (4 min walk)',
+      sellerId: 'user-2',
+      sellerName: 'Priya Sharma',
+      sellerAvatar: INITIAL_USERS[1].avatar,
+      sellerRating: 5.0,
+      sellerVerified: true,
+      contactPreference: 'CampusCart Chat or WhatsApp',
+      createdAt: new Date(Date.now() - 3600000).toISOString(),
+      views: 295,
+      featured: true,
+      status: 'active',
+    },
+    {
+      id: 'prod-3',
+      title: 'Study Table',
+      category: 'Furniture',
+      price: 1200,
+      originalPrice: 3200,
+      condition: 'Gently Used',
+      description: 'Sturdy wooden study desk with dual cable pass-throughs and spacious surface. Fits laptop, monitor, and notebooks comfortably. Easily disassembled.',
+      images: [studyDeskImg, laptopStandImg],
+      college: 'City Central University',
+      location: 'Pine Ridge Student Flats',
+      distance: '0.5 km away (6 min walk)',
+      sellerId: 'user-3',
+      sellerName: 'Marcus Williams',
+      sellerAvatar: INITIAL_USERS[2].avatar,
+      sellerRating: 4.8,
+      sellerVerified: true,
+      contactPreference: 'Pickup from apartment ground floor',
+      createdAt: new Date(Date.now() - 7200000).toISOString(),
+      views: 310,
+      featured: true,
+      status: 'active',
+    },
+    {
+      id: 'prod-4',
+      title: 'Hostel Study Lamp',
+      category: 'Hostel Essentials',
+      price: 450,
+      originalPrice: 1100,
+      condition: 'Like New',
+      description: 'Touch-control warm LED study desk lamp with 3 brightness modes and flexible neck. Includes USB cable. Eye-friendly flicker-free reading.',
+      images: [nightstandImg, studyDeskImg],
+      college: 'Northside Institute of Technology',
+      location: 'West Quad Suites',
+      distance: '0.4 km away (5 min walk)',
+      sellerId: 'user-4',
+      sellerName: 'Emily Chen',
+      sellerAvatar: INITIAL_USERS[3].avatar,
+      sellerRating: 4.7,
+      sellerVerified: true,
+      contactPreference: 'CampusCart Chat',
+      createdAt: new Date(Date.now() - 14400000).toISOString(),
+      views: 140,
+      featured: true,
+      status: 'active',
+    },
+    {
+      id: 'prod-5',
+      title: 'Mechanical Engineering Textbooks (Complete Set)',
+      category: 'Books & Study Materials',
+      price: 800,
+      originalPrice: 2400,
+      condition: 'Gently Used',
+      description: 'Includes Thermodynamics by Cengel & Boles, Theory of Machines, and Strength of Materials. Complete with handwritten lecture notes.',
+      images: [textbooksImg, laptopStandImg],
+      college: 'State Tech University',
+      location: 'Engineering Quad / North Hall',
+      distance: '0.3 km away (3 min walk)',
+      sellerId: 'user-1',
+      sellerName: 'Alex Rivera',
+      sellerAvatar: INITIAL_USERS[0].avatar,
+      sellerRating: 4.9,
+      sellerVerified: true,
+      contactPreference: 'Meet outside Engineering Quad',
+      createdAt: new Date(Date.now() - 28800000).toISOString(),
+      views: 210,
+      featured: true,
+      status: 'active',
+    },
+    {
+      id: 'prod-6',
+      title: 'Waterproof College Backpack',
+      category: 'Fashion',
+      price: 500,
+      originalPrice: 1600,
+      condition: 'Like New',
+      description: 'Padded laptop daypack with water-resistant fabric, USB charging port, hidden anti-theft pocket, and dual water bottle sleeves.',
+      images: ['https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80', textbooksImg],
+      college: 'West Campus Medical & Arts College',
+      location: 'BioMed Tower Dorms',
+      distance: '0.6 km away (7 min walk)',
+      sellerId: 'user-5',
+      sellerName: 'David Kim',
+      sellerAvatar: INITIAL_USERS[4].avatar,
+      sellerRating: 4.9,
+      sellerVerified: true,
+      contactPreference: 'CampusCart Chat',
+      createdAt: new Date(Date.now() - 43200000).toISOString(),
+      views: 165,
+      featured: true,
+      status: 'active',
+    },
+  ];
+
+  result.push(...promptFeaturedItems);
+
+  let idCounter = 7;
 
   // We loop through categories and template items, creating 520+ realistic variations
   // Each category has multiple items, multiplied by batches across colleges & dorms
@@ -319,12 +474,14 @@ function generate500PlusProducts(): Product[] {
         const user = INITIAL_USERS[(idCounter + batch) % INITIAL_USERS.length];
         const college = colleges[(idCounter + batch) % colleges.length];
         const location = dorms[(idCounter + i) % dorms.length];
+        const distance = distances[(idCounter + i) % distances.length];
         const condition = conditions[(idCounter + i + batch) % conditions.length];
 
-        // Slight price variation per batch for realism
-        const priceOffset = batch === 0 ? 0 : (batch % 2 === 0 ? -2 : 3);
-        const finalPrice = Math.max(5, item.price + priceOffset);
-        const finalOriginal = Math.max(finalPrice + 10, item.originalPrice + priceOffset * 2);
+        // Convert template price to realistic INR value (approx 20x for student prices)
+        const inrBasePrice = Math.round(item.price * 22 / 50) * 50;
+        const priceOffset = batch === 0 ? 0 : (batch % 2 === 0 ? -50 : 50);
+        const finalPrice = Math.max(150, inrBasePrice + priceOffset);
+        const finalOriginal = Math.round((finalPrice * 2.4) / 50) * 50;
 
         // Variant prefix/suffix for later batches
         const variantSuffixes = [
@@ -352,10 +509,12 @@ function generate500PlusProducts(): Product[] {
           images: [item.image, textbooksImg],
           college,
           location,
+          distance,
           sellerId: user.id,
           sellerName: user.name,
           sellerAvatar: user.avatar,
           sellerRating: Number((4.6 + ((idCounter * 7) % 5) / 10).toFixed(1)),
+          sellerVerified: true,
           contactPreference: 'CampusCart Chat / Meet at Dorm Quad',
           createdAt: createdDate,
           views: 45 + ((idCounter * 17) % 350),
